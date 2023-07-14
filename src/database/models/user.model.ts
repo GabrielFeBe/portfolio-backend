@@ -9,9 +9,9 @@ const sequelize = db;
 // export type UserSequelizeModel = Model<User, UserInputtableTypes>;
 
 class User extends Model<InferAttributes<User>, InferCreationAttributes<User>>{
-  id: number;
-  email: string;
-  password: string;
+  declare id: number;
+  declare email: string;
+  declare password: string;
 }
 
 User.init({

@@ -20,7 +20,7 @@ exports.default = {
                 allowNull: false,
                 field: 'project_image'
             },
-            respositoryLink: {
+            repositoryLink: {
                 type: sequelize_1.DataTypes.STRING,
                 allowNull: false,
                 field: 'repository_link'

@@ -1,31 +1,22 @@
 import express from 'express';
-import UserModel from './database/models/user.model';
-import { Request, Response } from 'express';
-import ProductModel from './database/models/posts.model'
-// import router from './routes'
 import 'express-async-errors'
+import ErrorMiddleware from './middleware/errorMiddleware';
+import router from './routes'
+
 
 class App {
   public app: express.Express
   constructor() {
     this.app = express()
     this.app.use(express.json())
-    // this.routes()
-    this.app.get('/', async (req: Request, res: Response) => {
-      const postsByUser = await UserModel.findByPk(1, {
-        include: [{
-          model: ProductModel,
-          as: 'posts'
-        }]
-      })
-      res.send({ postsByUser });
-    });
-
+    this.routes()
+    this.app.get('/', (_req, res) => res.status(200).send('portfolio on'))
+    this.app.use(ErrorMiddleware.handler)
   }
 
-  // private routes(): void {
-  //   this.app.use(router)
-  // }
+  private routes(): void {
+    this.app.use(router)
+  }
 
   public start(PORT: string | number) {
 

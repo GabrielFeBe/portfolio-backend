@@ -49,8 +49,8 @@ Post.init({
   underscored: true,
 });
 
-Post.belongsTo(User, { foreignKey: { allowNull: false, name: 'userId' } })
-User.hasMany(Post, { foreignKey: 'userId', as: 'posts' })
+// Post.belongsTo(User, { foreignKey: { allowNull: false, name: 'userId' } })
+// User.hasMany(Post, { foreignKey: 'userId', as: 'posts' })
 
 
 export default Post;

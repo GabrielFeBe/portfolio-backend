@@ -1,5 +1,6 @@
 import CPost from "../class/Post";
 import Post from "../database/models/posts.model";
+import User from "../database/models/user.model";
 
 
 class PostService {
@@ -7,9 +8,11 @@ class PostService {
   constructor(private postModel = Post) {
 
   }
-
   async creatingPost(post: CPost) {
-    const result = await this.postModel.create(post.objectForUse)
+    const postObj = post.objectForUse
+    const user = await User.findByPk(postObj.userId)
+    if (!user) throw new Error('não existe user com esse id')
+    const result = await this.postModel.create(postObj)
     return result;
   }
 
