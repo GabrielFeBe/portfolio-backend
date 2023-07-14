@@ -21,7 +21,7 @@ User.init({
     autoIncrement: true,
   },
   email: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING,
     allowNull: false,
   },
   password: {

@@ -18,7 +18,7 @@ User.init({
         autoIncrement: true,
     },
     email: {
-        type: sequelize_1.DataTypes.INTEGER,
+        type: sequelize_1.DataTypes.STRING,
         allowNull: false,
     },
     password: {

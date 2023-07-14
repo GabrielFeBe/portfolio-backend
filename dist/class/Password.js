@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 class Password {
     constructor(password) {
-        if (password.length < 6)
+        if (password.length < 6 || typeof password !== 'string')
             throw new Error('invalid password');
         this._password = password;
     }

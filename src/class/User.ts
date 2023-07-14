@@ -4,15 +4,15 @@ import Password from "./Password";
 export default class User {
   private _email: Email;
   private _password: Password;
-  constructor(email: Email, password: Password) {
-    this._email = email;
-    this._password = password;
+  constructor(email: string, password: string) {
+    this._email = new Email(email);
+    this._password = new Password(password);
 
   }
   getUser() {
     return {
-      email: this._email,
-      password: this._password
+      email: this._email.getEmail(),
+      password: this._password.getPassword()
     }
   }
 

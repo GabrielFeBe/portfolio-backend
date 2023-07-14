@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from "express";
+import ValidateMidFunctions from "./ValidationMidFunction";
 
 class Validate {
   static validatePost(req: Request, res: Response, next: NextFunction) {
@@ -7,11 +8,17 @@ class Validate {
       'projectImage',
       'projectDescription',
       'repositoryLink',
-      'userId']
-    const notFoundKey = requiredKeys.find((key) => !(key in post));
-    if (notFoundKey) {
-      throw new Error(`${notFoundKey} is required`)
-    }
+      'userId'];
+
+    ValidateMidFunctions.notFoundKey(requiredKeys, post)
+
+    next()
+  }
+  static validateUser(req: Request, res: Response, next: NextFunction) {
+    const post = req.body;
+    const requiredKeys = ['password', 'email'];
+
+    ValidateMidFunctions.notFoundKey(requiredKeys, post)
 
     next()
   }

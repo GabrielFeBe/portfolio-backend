@@ -5,6 +5,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const sequelize_1 = require("sequelize");
 const index_1 = __importDefault(require("./index"));
+// import { TPostS } from '../../types/Post';
+const user_model_1 = __importDefault(require("./user.model"));
 // type PostInputtableTypes = Optional<TPostS, 'id'>;
 // type PostSequelizeModelCreator = ModelDefined<TPostS, PostInputtableTypes>;
 // export type PostSequelizeModel = Model<TPostS, PostInputtableTypes>;
@@ -41,7 +43,7 @@ Post.init({
     timestamps: false,
     underscored: true,
 });
-// Post.belongsTo(User, { foreignKey: { allowNull: false, name: 'userId' } })
-// User.hasMany(Post, { foreignKey: 'userId', as: 'posts' })
+Post.belongsTo(user_model_1.default, { foreignKey: { allowNull: false, name: 'userId' } });
+user_model_1.default.hasMany(Post, { foreignKey: 'userId', as: 'posts' });
 exports.default = Post;
 //# sourceMappingURL=posts.model.js.map
