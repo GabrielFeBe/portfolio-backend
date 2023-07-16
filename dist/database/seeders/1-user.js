@@ -10,7 +10,7 @@ exports.default = {
         return queryInterface.bulkInsert('users', [
             {
                 email: 'hu3master.zord@hotmail.com',
-                password: bcryptjs_1.default.hashSync('teste', SALT_ROUNDS),
+                password: bcryptjs_1.default.hashSync('Gnomos', SALT_ROUNDS),
             },
         ], {});
     },

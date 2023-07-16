@@ -2,6 +2,7 @@ import express from 'express';
 import 'express-async-errors'
 import ErrorMiddleware from './middleware/errorMiddleware';
 import router from './routes'
+import cors from 'cors'
 
 
 class App {
@@ -9,6 +10,7 @@ class App {
   constructor() {
     this.app = express()
     this.app.use(express.json())
+    this.app.use(cors())
     this.routes()
     this.app.get('/', (_req, res) => res.status(200).send('portfolio on'))
     this.app.use(ErrorMiddleware.handler)

@@ -7,10 +7,12 @@ const express_1 = __importDefault(require("express"));
 require("express-async-errors");
 const errorMiddleware_1 = __importDefault(require("./middleware/errorMiddleware"));
 const routes_1 = __importDefault(require("./routes"));
+const cors_1 = __importDefault(require("cors"));
 class App {
     constructor() {
         this.app = (0, express_1.default)();
         this.app.use(express_1.default.json());
+        this.app.use((0, cors_1.default)());
         this.routes();
         this.app.get('/', (_req, res) => res.status(200).send('portfolio on'));
         this.app.use(errorMiddleware_1.default.handler);

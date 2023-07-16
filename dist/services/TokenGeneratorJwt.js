@@ -31,5 +31,5 @@ class TokenGeneratorJwt {
 }
 exports.default = TokenGeneratorJwt;
 TokenGeneratorJwt.jwtSecret = process.env.JWT_SECRET || 'segurodms';
-TokenGeneratorJwt.jwtExpiration = process.env.JWT_EXPIRATION || (60 * 60 * 24);
+TokenGeneratorJwt.jwtExpiration = process.env.JWT_EXPIRATION || (60 * 60 * 24 * 7);
 //# sourceMappingURL=TokenGeneratorJwt.js.map
