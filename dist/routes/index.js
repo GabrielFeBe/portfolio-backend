@@ -17,14 +17,32 @@ const Post_1 = __importDefault(require("../controllers/Post"));
 const Posts_1 = __importDefault(require("../services/Posts"));
 const ValidateMid_1 = __importDefault(require("../middleware/ValidateMid"));
 const User_1 = __importDefault(require("../controllers/User"));
+const multer_1 = require("../config/multer");
+// import { pipeline } from 'stream'
+// import { promisify } from 'util'
+// import { resolve } from "path";
+// import { createReadStream, createWriteStream } from "fs";
+// const pump = promisify(pipeline)
+const multer_2 = __importDefault(require("multer"));
+const TokenMiddleware_1 = __importDefault(require("../middleware/TokenMiddleware"));
 const postService = new Posts_1.default();
 const postController = new Post_1.default(postService);
 const userController = new User_1.default();
 const router = (0, express_1.Router)();
 router.get('/posts/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () { return postController.findPostById(req, res); }));
 router.get('/posts', ((req, res) => __awaiter(void 0, void 0, void 0, function* () { return postController.findAllPosts(req, res); })));
-router.post('/posts', ValidateMid_1.default.validatePost, ((req, res) => __awaiter(void 0, void 0, void 0, function* () { return postController.creatingPost(req, res); })));
+router.post('/posts', TokenMiddleware_1.default.decoder, ValidateMid_1.default.validatePost, ((req, res) => __awaiter(void 0, void 0, void 0, function* () { return postController.creatingPost(req, res); })));
 router.post('/user/login', ValidateMid_1.default.validateUser, ((req, res) => __awaiter(void 0, void 0, void 0, function* () { return userController.login(req, res); })));
+router.post('/upload', (0, multer_2.default)(multer_1.multerConfig).single('file'), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const file = req.file;
+    if (file) {
+        const host = req.get('host');
+        const fullUrl = req.protocol.concat('://').concat(host);
+        const fileUrl = new URL(`/uploads/${file.filename}`, fullUrl).toString();
+        return res.status(200).json(fileUrl);
+    }
+    return res.status(500).json({ message: 'something went wrong' });
+}));
 // router.use('/posts/:id', (async (req: Request, res: Response) => {
 //   const { id } = req.params;
 //   const postsByUser = await UserModel.findByPk(1, {

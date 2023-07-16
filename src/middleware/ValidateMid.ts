@@ -7,8 +7,7 @@ class Validate {
     const requiredKeys = [
       'projectImage',
       'projectDescription',
-      'repositoryLink',
-      'userId'];
+      'repositoryLink'];
 
     ValidateMidFunctions.notFoundKey(requiredKeys, post)
 
