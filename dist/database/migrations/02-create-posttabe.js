@@ -11,7 +11,7 @@ exports.default = {
                 allowNull: false,
             },
             projectDescription: {
-                type: sequelize_1.DataTypes.STRING,
+                type: sequelize_1.DataTypes.TEXT,
                 allowNull: false,
                 field: 'project_description'
             },

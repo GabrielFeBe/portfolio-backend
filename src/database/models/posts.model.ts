@@ -1,11 +1,8 @@
-import { CreationOptional, DataTypes, ForeignKey, InferAttributes, InferCreationAttributes, Model, ModelDefined, Optional } from 'sequelize';
+import { CreationOptional, DataTypes, ForeignKey, InferAttributes, InferCreationAttributes, Model } from 'sequelize';
 import db from './index';
-// import { TPostS } from '../../types/Post';
 import User from './user.model'
 
-// type PostInputtableTypes = Optional<TPostS, 'id'>;
-// type PostSequelizeModelCreator = ModelDefined<TPostS, PostInputtableTypes>;
-// export type PostSequelizeModel = Model<TPostS, PostInputtableTypes>;
+
 
 const sequelize = db;
 

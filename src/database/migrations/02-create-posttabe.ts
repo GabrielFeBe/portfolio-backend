@@ -11,7 +11,7 @@ export default {
         allowNull: false,
       },
       projectDescription: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false,
         field: 'project_description'
       },
