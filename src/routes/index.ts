@@ -12,11 +12,17 @@ import { multerConfig } from '../config/multer'
 // const pump = promisify(pipeline)
 import multer from "multer";
 import TokenMiddleware from "../middleware/TokenMiddleware";
+import UserService from "../services/User";
+import TokenGeneratorJwt from "../services/TokenGeneratorJwt";
+import EncrypterBcrypt from "../services/EncrypterBcrypt";
 
 
 const postService = new PostService()
 const postController = new PostController(postService)
-const userController = new UserController()
+const tokenGenerator = new TokenGeneratorJwt()
+const encrypter = new EncrypterBcrypt()
+const userService = new UserService(encrypter, tokenGenerator)
+const userController = new UserController(userService)
 
 
 

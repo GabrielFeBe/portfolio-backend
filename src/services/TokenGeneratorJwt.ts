@@ -1,14 +1,7 @@
 import jwt from 'jsonwebtoken'
-import { TokenGenerator, userDefault } from './User';
+import { JwtPayload, TokenGenerator, userDefault } from '../interfaces/ITokenGenerator';
 
 const jwtSecret = process.env.JWT_SECRET || 'segurodms';
-
-interface JwtPayload {
-  id: number;
-  username: string;
-
-  // outras propriedades, se houver
-}
 
 
 

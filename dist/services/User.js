@@ -16,7 +16,7 @@ const user_model_1 = __importDefault(require("../database/models/user.model"));
 const EncrypterBcrypt_1 = __importDefault(require("./EncrypterBcrypt"));
 const TokenGeneratorJwt_1 = __importDefault(require("./TokenGeneratorJwt"));
 class UserService {
-    constructor(userModel = user_model_1.default) {
+    constructor(encrypter, tokenGenerator, userModel = user_model_1.default) {
         this.userModel = userModel;
         this.encrypter = new EncrypterBcrypt_1.default();
         this.tokenGenerator = new TokenGeneratorJwt_1.default();

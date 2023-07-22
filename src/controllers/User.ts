@@ -2,10 +2,12 @@ import UserService from "../services/User";
 import { Request, Response } from 'express';
 import User from "../class/User";
 
-
+interface IUserService {
+  longinUser(afterVal: User): Promise<string>
+}
 
 class UserController {
-  constructor(private userService = new UserService()) { }
+  constructor(private userService: IUserService) { }
   async login(req: Request, res: Response) {
     const { email, password } = req.body;
     const afterValidation = new User(email, password)
