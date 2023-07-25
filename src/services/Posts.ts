@@ -13,6 +13,13 @@ class PostService {
     const postObj = post.objectForUse
     const user = await User.findByPk(postObj.userId)
     if (!user) throw new Error('não existe user com esse id')
+    const posts = await this.postModel.findAll({
+      where: {
+        isFavorite: true
+      }
+    })
+    console.log(posts.length)
+    if (posts.length >= 2) throw new Error('Limite de 2 posts favoritos atingidos')
     const result = await this.postModel.create(postObj)
     return result;
   }

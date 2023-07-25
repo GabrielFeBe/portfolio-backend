@@ -7,12 +7,14 @@ class CPost implements TPostS {
   readonly repositoryLink: string;
   readonly userId: number;
   readonly projectDescription: string;
+  readonly isFavorite: boolean;
   constructor(post: TPostS) {
     const schema = z.object({
       projectImage: z.string(),
       repositoryLink: z.string(),
       userId: z.number(),
       projectDescription: z.string().min(50),
+      isFavorite: z.boolean()
     });
 
     const result = schema.safeParse(post)
@@ -26,6 +28,7 @@ class CPost implements TPostS {
     this.repositoryLink = post.repositoryLink;
     this.userId = post.userId;
     this.projectDescription = post.projectDescription;
+    this.isFavorite = post.isFavorite;
   }
 
   get objectForUse(): TPostS {
@@ -34,6 +37,7 @@ class CPost implements TPostS {
       repositoryLink: this.repositoryLink,
       userId: this.userId,
       projectDescription: this.projectDescription,
+      isFavorite: this.isFavorite,
     }
   }
 

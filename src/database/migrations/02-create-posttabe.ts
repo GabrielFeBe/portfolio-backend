@@ -29,6 +29,11 @@ export default {
         type: DataTypes.STRING,
         allowNull: false,
         field: 'user_id',
+      },
+      isFavorite: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        field: 'is_favorite',
       }
 
     });

@@ -29,6 +29,11 @@ exports.default = {
                 type: sequelize_1.DataTypes.STRING,
                 allowNull: false,
                 field: 'user_id',
+            },
+            isFavorite: {
+                type: sequelize_1.DataTypes.BOOLEAN,
+                allowNull: false,
+                field: 'is_favorite',
             }
         });
     },

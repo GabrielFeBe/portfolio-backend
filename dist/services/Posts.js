@@ -24,6 +24,14 @@ class PostService {
             const user = yield user_model_1.default.findByPk(postObj.userId);
             if (!user)
                 throw new Error('não existe user com esse id');
+            const posts = yield this.postModel.findAll({
+                where: {
+                    isFavorite: true
+                }
+            });
+            console.log(posts.length);
+            if (posts.length >= 2)
+                throw new Error('Limite de 2 posts favoritos atingidos');
             const result = yield this.postModel.create(postObj);
             return result;
         });

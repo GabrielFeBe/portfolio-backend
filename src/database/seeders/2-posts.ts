@@ -10,6 +10,7 @@ export default {
         project_description: 'projeto baseado em baseado',
         repository_link: 'string',
         user_id: 1,
+        is_favorite: true,
       },
     ], {});
   },

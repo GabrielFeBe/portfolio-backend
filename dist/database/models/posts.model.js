@@ -32,6 +32,11 @@ Post.init({
         allowNull: false,
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE'
+    },
+    isFavorite: {
+        type: sequelize_1.DataTypes.BOOLEAN,
+        allowNull: false,
+        field: 'is_favorite',
     }
 }, {
     sequelize,

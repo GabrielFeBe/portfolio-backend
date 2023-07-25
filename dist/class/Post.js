@@ -9,6 +9,7 @@ class CPost {
             repositoryLink: zod_1.z.string(),
             userId: zod_1.z.number(),
             projectDescription: zod_1.z.string().min(50),
+            isFavorite: zod_1.z.boolean()
         });
         const result = schema.safeParse(post);
         if (!result.success) {
@@ -19,6 +20,7 @@ class CPost {
         this.repositoryLink = post.repositoryLink;
         this.userId = post.userId;
         this.projectDescription = post.projectDescription;
+        this.isFavorite = post.isFavorite;
     }
     get objectForUse() {
         return {
@@ -26,6 +28,7 @@ class CPost {
             repositoryLink: this.repositoryLink,
             userId: this.userId,
             projectDescription: this.projectDescription,
+            isFavorite: this.isFavorite,
         };
     }
 }

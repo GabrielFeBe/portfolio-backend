@@ -12,6 +12,7 @@ class Post extends Model<InferAttributes<Post>, InferCreationAttributes<Post>> {
   declare projectImage: string;
   declare repositoryLink: string;
   declare userId: ForeignKey<User['id']>;
+  declare isFavorite: boolean;
 }
 
 Post.init({
@@ -38,6 +39,11 @@ Post.init({
     onDelete: 'CASCADE',
     onUpdate: 'CASCADE'
 
+  },
+  isFavorite: {
+    type: DataTypes.BOOLEAN,
+    allowNull: false,
+    field: 'is_favorite',
   }
 }, {
   sequelize,
