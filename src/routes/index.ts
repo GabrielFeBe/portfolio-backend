@@ -29,6 +29,7 @@ const userController = new UserController(userService)
 const router = Router();
 router.get('/posts/:id', async (req: Request, res: Response) => postController.findPostById(req, res))
 router.get('/posts', (async (req: Request, res: Response) => postController.findAllPosts(req, res)))
+router.get('/favorites', (async (req: Request, res: Response) => postController.findAllFavoritesPosts(req, res)))
 router.post('/posts', TokenMiddleware.decoder, Validate.validatePost, (async (req: Request, res: Response) => postController.creatingPost(req, res)))
 router.post('/user/login', Validate.validateUser, (async (req: Request, res: Response) => userController.login(req, res)))
 
@@ -42,15 +43,5 @@ router.post('/upload', multer(multerConfig).single('file'), async (req: Request,
   }
   return res.status(500).json({ message: 'something went wrong' })
 })
-// router.use('/posts/:id', (async (req: Request, res: Response) => {
-//   const { id } = req.params;
-//   const postsByUser = await UserModel.findByPk(1, {
-//     include: [{
-//       model: ProductModel,
-//       as: 'posts'
-//     }]
-//   })
-//   res.send({ postsByUser });
-// }))
 
 export default router;

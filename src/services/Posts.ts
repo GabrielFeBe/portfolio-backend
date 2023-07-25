@@ -28,11 +28,19 @@ class PostService {
     const result = await this.postModel.findAll()
     return result
   }
+  async getingAllFavoritesPosts(): Promise<TPostS[]> {
+    const posts = await this.postModel.findAll({
+      where: {
+        isFavorite: true
+      }
+    })
+
+    return posts
+  }
   async findById(id: number): Promise<TPostS> {
     const result = await this.postModel.findByPk(id)
     if (!result) throw new Error('não existe post com esse id')
     return result
-
   }
 }
 

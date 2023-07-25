@@ -37,6 +37,7 @@ const userController = new User_1.default(userService);
 const router = (0, express_1.Router)();
 router.get('/posts/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () { return postController.findPostById(req, res); }));
 router.get('/posts', ((req, res) => __awaiter(void 0, void 0, void 0, function* () { return postController.findAllPosts(req, res); })));
+router.get('/favorites', ((req, res) => __awaiter(void 0, void 0, void 0, function* () { return postController.findAllFavoritesPosts(req, res); })));
 router.post('/posts', TokenMiddleware_1.default.decoder, ValidateMid_1.default.validatePost, ((req, res) => __awaiter(void 0, void 0, void 0, function* () { return postController.creatingPost(req, res); })));
 router.post('/user/login', ValidateMid_1.default.validateUser, ((req, res) => __awaiter(void 0, void 0, void 0, function* () { return userController.login(req, res); })));
 router.post('/upload', (0, multer_2.default)(multer_1.multerConfig).single('file'), (req, res) => __awaiter(void 0, void 0, void 0, function* () {

@@ -42,6 +42,16 @@ class PostService {
             return result;
         });
     }
+    getingAllFavoritesPosts() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const posts = yield this.postModel.findAll({
+                where: {
+                    isFavorite: true
+                }
+            });
+            return posts;
+        });
+    }
     findById(id) {
         return __awaiter(this, void 0, void 0, function* () {
             const result = yield this.postModel.findByPk(id);

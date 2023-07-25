@@ -30,6 +30,12 @@ class PostController {
             return res.status(200).json(response);
         });
     }
+    findAllFavoritesPosts(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const response = yield this.postService.getingAllFavoritesPosts();
+            return res.status(200).json(response);
+        });
+    }
     creatingPost(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const objectToCreate = req.body;

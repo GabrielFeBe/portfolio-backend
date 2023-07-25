@@ -19,6 +19,10 @@ class PostController {
     const response = await this.postService.getingAllPosts()
     return res.status(200).json(response);
   }
+  async findAllFavoritesPosts(req: Request, res: Response) {
+    const response = await this.postService.getingAllFavoritesPosts()
+    return res.status(200).json(response);
+  }
   async creatingPost(req: Request, res: Response) {
     const objectToCreate = req.body;
     const post = new CPost(objectToCreate)
