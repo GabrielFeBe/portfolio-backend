@@ -37,7 +37,12 @@ Post.init({
         type: sequelize_1.DataTypes.BOOLEAN,
         allowNull: false,
         field: 'is_favorite',
-    }
+    },
+    title: {
+        type: sequelize_1.DataTypes.STRING,
+        allowNull: false,
+        field: 'title',
+    },
 }, {
     sequelize,
     tableName: 'posts',

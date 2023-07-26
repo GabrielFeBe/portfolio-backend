@@ -34,6 +34,11 @@ exports.default = {
                 type: sequelize_1.DataTypes.BOOLEAN,
                 allowNull: false,
                 field: 'is_favorite',
+            },
+            title: {
+                type: sequelize_1.DataTypes.TEXT,
+                allowNull: false,
+                field: 'title'
             }
         });
     },

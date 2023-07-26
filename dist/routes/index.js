@@ -50,15 +50,5 @@ router.post('/upload', (0, multer_2.default)(multer_1.multerConfig).single('file
     }
     return res.status(500).json({ message: 'something went wrong' });
 }));
-// router.use('/posts/:id', (async (req: Request, res: Response) => {
-//   const { id } = req.params;
-//   const postsByUser = await UserModel.findByPk(1, {
-//     include: [{
-//       model: ProductModel,
-//       as: 'posts'
-//     }]
-//   })
-//   res.send({ postsByUser });
-// }))
 exports.default = router;
 //# sourceMappingURL=index.js.map

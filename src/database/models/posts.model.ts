@@ -13,6 +13,7 @@ class Post extends Model<InferAttributes<Post>, InferCreationAttributes<Post>> {
   declare repositoryLink: string;
   declare userId: ForeignKey<User['id']>;
   declare isFavorite: boolean;
+  declare title: string;
 }
 
 Post.init({
@@ -44,7 +45,12 @@ Post.init({
     type: DataTypes.BOOLEAN,
     allowNull: false,
     field: 'is_favorite',
-  }
+  },
+  title: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    field: 'title',
+  },
 }, {
   sequelize,
   tableName: 'posts',

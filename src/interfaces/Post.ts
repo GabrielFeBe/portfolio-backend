@@ -7,5 +7,6 @@ export type TPostS = {
   repositoryLink: string,
   userId: number,
   isFavorite: boolean,
+  title: string,
 }
 export default TPostS

@@ -34,6 +34,12 @@ export default {
         type: DataTypes.BOOLEAN,
         allowNull: false,
         field: 'is_favorite',
+      },
+      title: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+        field: 'title'
+
       }
 
     });
