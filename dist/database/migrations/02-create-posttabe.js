@@ -38,7 +38,17 @@ exports.default = {
             title: {
                 type: sequelize_1.DataTypes.TEXT,
                 allowNull: false,
-                field: 'title'
+                field: 'title',
+            },
+            mainLanguage: {
+                type: sequelize_1.DataTypes.STRING,
+                allowNull: false,
+                field: 'main_language'
+            },
+            createdAt: {
+                type: sequelize_1.DataTypes.DATE,
+                allowNull: false,
+                field: 'created_at'
             }
         });
     },

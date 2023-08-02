@@ -38,8 +38,17 @@ export default {
       title: {
         type: DataTypes.TEXT,
         allowNull: false,
-        field: 'title'
-
+        field: 'title',
+      },
+      mainLanguage: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        field: 'main_language'
+      },
+      createdAt: {
+        type: DataTypes.DATE,
+        allowNull: false,
+        field: 'created_at'
       }
 
     });

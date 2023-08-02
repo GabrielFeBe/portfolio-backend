@@ -12,6 +12,8 @@ export default {
         user_id: 1,
         is_favorite: true,
         title: 'Gato Do Shadow',
+        main_language: 'TypeScript',
+        created_at: new Date()
       },
     ], {});
   },

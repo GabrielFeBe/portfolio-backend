@@ -43,6 +43,16 @@ Post.init({
         allowNull: false,
         field: 'title',
     },
+    mainLanguage: {
+        type: sequelize_1.DataTypes.STRING,
+        allowNull: false,
+        field: 'main_language'
+    },
+    createdAt: {
+        type: sequelize_1.DataTypes.DATE,
+        allowNull: false,
+        field: 'created_at'
+    }
 }, {
     sequelize,
     tableName: 'posts',

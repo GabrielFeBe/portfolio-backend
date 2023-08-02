@@ -14,6 +14,8 @@ class Post extends Model<InferAttributes<Post>, InferCreationAttributes<Post>> {
   declare userId: ForeignKey<User['id']>;
   declare isFavorite: boolean;
   declare title: string;
+  declare mainLanguage: string;
+  declare createdAt: Date;
 }
 
 Post.init({
@@ -51,6 +53,16 @@ Post.init({
     allowNull: false,
     field: 'title',
   },
+  mainLanguage: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    field: 'main_language'
+  },
+  createdAt: {
+    type: DataTypes.DATE,
+    allowNull: false,
+    field: 'created_at'
+  }
 }, {
   sequelize,
   tableName: 'posts',

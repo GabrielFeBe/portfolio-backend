@@ -8,5 +8,7 @@ export type TPostS = {
   userId: number,
   isFavorite: boolean,
   title: string,
+  mainLanguage: string,
+  createdAt: Date
 }
 export default TPostS

@@ -29,7 +29,6 @@ class PostService {
                     isFavorite: true
                 }
             });
-            console.log(posts.length);
             if (posts.length >= 2)
                 throw new Error('Limite de 2 posts favoritos atingidos');
             const result = yield this.postModel.create(postObj);
