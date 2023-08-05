@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const bcryptjs_1 = __importDefault(require("bcryptjs"));
 const SALT_ROUNDS = process.env.BCRYPT_SALT_ROUNDS || 10;
-const PASS_WORD = process.env.PASSWORD || 'Gnomos';
+const PASS_WORD = process.env.PASSWORD || 'Gnomos1';
 exports.default = {
     up(queryInterface) {
         return queryInterface.bulkInsert('users', [

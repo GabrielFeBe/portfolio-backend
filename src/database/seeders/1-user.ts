@@ -3,7 +3,7 @@ import bcrypt from 'bcryptjs';
 
 const SALT_ROUNDS = process.env.BCRYPT_SALT_ROUNDS || 10;
 
-const PASS_WORD = process.env.PASSWORD || 'Gnomos1';
+const PASS_WORD = process.env.PASSWORD || 'Gnomos';
 
 export default {
   up(queryInterface: QueryInterface) {
