@@ -33,7 +33,7 @@ router.get('/favorites', (async (req: Request, res: Response) => postController.
 router.post('/posts', TokenMiddleware.decoder, Validate.validatePost, (async (req: Request, res: Response) => postController.creatingPost(req, res)))
 router.post('/user/login', Validate.validateUser, (async (req: Request, res: Response) => userController.login(req, res)))
 
-router.post('/upload', multer(multerConfig).single('file'), async (req: Request, res: Response) => {
+router.post('/upload', TokenMiddleware.decoder, multer(multerConfig).single('file'), async (req: Request, res: Response) => {
   const file = req.file;
   if (file) {
     const host: any = req.get('host')
