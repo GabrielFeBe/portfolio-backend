@@ -5,12 +5,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const bcryptjs_1 = __importDefault(require("bcryptjs"));
 const SALT_ROUNDS = process.env.BCRYPT_SALT_ROUNDS || 10;
+const PASS_WORD = process.env.PASSWORD || 'Gnomos';
 exports.default = {
     up(queryInterface) {
         return queryInterface.bulkInsert('users', [
             {
                 email: 'hu3master.zord@hotmail.com',
-                password: bcryptjs_1.default.hashSync('Gnomos', SALT_ROUNDS),
+                password: bcryptjs_1.default.hashSync(PASS_WORD, SALT_ROUNDS),
             },
         ], {});
     },
