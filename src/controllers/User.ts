@@ -1,4 +1,3 @@
-import UserService from "../services/User";
 import { Request, Response } from 'express';
 import User from "../class/User";
 

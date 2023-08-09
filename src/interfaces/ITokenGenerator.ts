@@ -1,11 +1,11 @@
-export interface userDefault {
+export interface UserDefault {
   email: string;
   password: string;
   id: number;
 }
 
 export interface TokenGenerator {
-  generate(user: userDefault): string
+  generate(user: UserDefault): string
 }
 
 

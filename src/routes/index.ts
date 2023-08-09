@@ -1,15 +1,9 @@
-import { Router } from "express";
 import PostController from "../controllers/Post";
 import PostService from "../services/Posts";
-import { Request, Response } from 'express';
+import { Request, Response, Router } from 'express';
 import Validate from "../middleware/ValidateMid";
 import UserController from "../controllers/User";
 import { multerConfig } from '../config/multer'
-// import { pipeline } from 'stream'
-// import { promisify } from 'util'
-// import { resolve } from "path";
-// import { createReadStream, createWriteStream } from "fs";
-// const pump = promisify(pipeline)
 import multer from "multer";
 import TokenMiddleware from "../middleware/TokenMiddleware";
 import UserService from "../services/User";
