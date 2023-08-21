@@ -29,6 +29,11 @@ class PostController {
     const response = await this.postService.creatingPost(post)
     return res.status(200).json(response);
   }
+  async editingPost(req: Request, res: Response) {
+    const post = req.body;
+    const response = await this.postService.editingPost(post);
+    return res.status(204).json(response)
+  }
 
 }
 

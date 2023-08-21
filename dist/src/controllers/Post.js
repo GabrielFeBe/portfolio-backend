@@ -44,6 +44,13 @@ class PostController {
             return res.status(200).json(response);
         });
     }
+    editingPost(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const post = req.body;
+            const response = yield this.postService.editingPost(post);
+            return res.status(204).json(response);
+        });
+    }
 }
 exports.default = PostController;
 //# sourceMappingURL=Post.js.map

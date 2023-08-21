@@ -12,17 +12,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = require("express");
 const Post_1 = __importDefault(require("../controllers/Post"));
 const Posts_1 = __importDefault(require("../services/Posts"));
+const express_1 = require("express");
 const ValidateMid_1 = __importDefault(require("../middleware/ValidateMid"));
 const User_1 = __importDefault(require("../controllers/User"));
 const multer_1 = require("../config/multer");
-// import { pipeline } from 'stream'
-// import { promisify } from 'util'
-// import { resolve } from "path";
-// import { createReadStream, createWriteStream } from "fs";
-// const pump = promisify(pipeline)
 const multer_2 = __importDefault(require("multer"));
 const TokenMiddleware_1 = __importDefault(require("../middleware/TokenMiddleware"));
 const User_2 = __importDefault(require("../services/User"));
@@ -37,6 +32,7 @@ const userController = new User_1.default(userService);
 const router = (0, express_1.Router)();
 router.get('/posts/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () { return postController.findPostById(req, res); }));
 router.get('/posts', ((req, res) => __awaiter(void 0, void 0, void 0, function* () { return postController.findAllPosts(req, res); })));
+router.patch('/posts/editing', TokenMiddleware_1.default.decoder, ((req, res) => __awaiter(void 0, void 0, void 0, function* () { return postController.editingPost(req, res); })));
 router.get('/favorites', ((req, res) => __awaiter(void 0, void 0, void 0, function* () { return postController.findAllFavoritesPosts(req, res); })));
 router.post('/posts', TokenMiddleware_1.default.decoder, ValidateMid_1.default.validatePost, ((req, res) => __awaiter(void 0, void 0, void 0, function* () { return postController.creatingPost(req, res); })));
 router.post('/user/login', ValidateMid_1.default.validateUser, ((req, res) => __awaiter(void 0, void 0, void 0, function* () { return userController.login(req, res); })));

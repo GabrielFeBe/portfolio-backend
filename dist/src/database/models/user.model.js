@@ -6,9 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const sequelize_1 = require("sequelize");
 const index_1 = __importDefault(require("./index"));
 const sequelize = index_1.default;
-// type UserInputtableTypes = Optional<User, 'id'>;
-// type UserSequelizeModelCreator = ModelDefined<User, UserInputtableTypes>;
-// export type UserSequelizeModel = Model<User, UserInputtableTypes>;
 class User extends sequelize_1.Model {
 }
 User.init({
@@ -31,6 +28,5 @@ User.init({
     timestamps: false,
     underscored: true,
 });
-// UserModel.hasMany(Posts, { foreignKey: 'userId', as: 'posts' })
 exports.default = User;
 //# sourceMappingURL=user.model.js.map

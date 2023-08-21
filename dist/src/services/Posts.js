@@ -18,6 +18,27 @@ class PostService {
     constructor(postModel = posts_model_1.default) {
         this.postModel = postModel;
     }
+    editingPost(post) {
+        return __awaiter(this, void 0, void 0, function* () {
+            // const postObj = post.objectForUse
+            const user = yield user_model_1.default.findByPk(post.userId);
+            if (!user)
+                throw new Error('não existe user com esse id');
+            const posts = yield this.postModel.findAll({
+                where: {
+                    isFavorite: true
+                }
+            });
+            if (posts.length >= 2 && post.isFavorite)
+                throw new Error('Limite de 2 posts favoritos atingidos');
+            const [result] = yield this.postModel.update(post, {
+                where: {
+                    id: post.id
+                }
+            });
+            return result;
+        });
+    }
     creatingPost(post) {
         return __awaiter(this, void 0, void 0, function* () {
             const postObj = post.objectForUse;
