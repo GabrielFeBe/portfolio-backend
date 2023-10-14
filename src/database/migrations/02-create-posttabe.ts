@@ -49,6 +49,11 @@ export default {
         type: DataTypes.DATE,
         allowNull: false,
         field: 'created_at'
+      }, 
+      deployLink: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        field: 'deploy_link'
       }
 
     });

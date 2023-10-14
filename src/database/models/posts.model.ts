@@ -16,6 +16,7 @@ class Post extends Model<InferAttributes<Post>, InferCreationAttributes<Post>> {
   declare title: string;
   declare mainLanguage: string;
   declare createdAt: Date;
+  declare deployLink?: string;
 }
 
 Post.init({
@@ -62,6 +63,11 @@ Post.init({
     type: DataTypes.DATE,
     allowNull: false,
     field: 'created_at'
+  },
+  deployLink: {
+    type: DataTypes.STRING,
+    allowNull: true,
+    field: 'deploy_link'
   }
 }, {
   sequelize,
