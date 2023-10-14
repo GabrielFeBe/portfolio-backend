@@ -4,9 +4,11 @@
   "description": "",
   "main": "src/server.js",
   "scripts": {
-    "start": "npm run seed && ts-node src/server.ts",
+    "build": "tsc",
+   "start": "node dist/src/server.js",
+    "dev:start": "ts-node src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "db:reset": "npx -y tsc && npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate",
+    "db:reset": "npx -y tsc && npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
     "seed": "sequelize db:seed:all"
   },
   "keywords": [],

@@ -49,6 +49,11 @@ exports.default = {
                 type: sequelize_1.DataTypes.DATE,
                 allowNull: false,
                 field: 'created_at'
+            },
+            deployLink: {
+                type: sequelize_1.DataTypes.STRING,
+                allowNull: true,
+                field: 'deploy_link'
             }
         });
     },
