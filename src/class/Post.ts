@@ -11,6 +11,7 @@ class CPost implements TPostS {
   readonly title: string;
   readonly mainLanguage: string;
   readonly createdAt: Date;
+  readonly  deployLink?: string | undefined;
   constructor(post: TPostS) {
     const schema = z.object({
       projectImage: z.string(),
@@ -19,6 +20,7 @@ class CPost implements TPostS {
       projectDescription: z.string().min(50),
       isFavorite: z.boolean(),
       title: z.string().min(6),
+      deployLink: z.string().optional(),
       mainLanguage: z.string().min(6),
       createdAt: z
         .string()
@@ -32,6 +34,7 @@ class CPost implements TPostS {
       throw new Error(issues.message)
 
     }
+    this.deployLink = post.deployLink;
     this.projectImage = post.projectImage;
     this.repositoryLink = post.repositoryLink;
     this.userId = post.userId;
@@ -44,6 +47,7 @@ class CPost implements TPostS {
 
   get objectForUse(): TPostS {
     return {
+      deployLink: this.deployLink,
       projectImage: this.projectImage,
       repositoryLink: this.repositoryLink,
       userId: this.userId,
