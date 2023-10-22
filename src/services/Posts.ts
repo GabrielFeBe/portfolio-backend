@@ -10,7 +10,7 @@ class PostService {
 
   }
 
-  async editingPost(post: TPostS): Promise<number | null> {
+  async editingPost(post: TPostS , id:number): Promise<number | null> {
     // const postObj = post.objectForUse
     const user = await User.findByPk(post.userId)
     if (!user) throw new Error('não existe user com esse id')
@@ -22,7 +22,7 @@ class PostService {
     if (posts.length >= 2 && post.isFavorite) throw new Error('Limite de 2 posts favoritos atingidos')
     const [result] = await this.postModel.update(post, {
       where: {
-        id: post.id
+        id: id,
       }
     })
     return result;
