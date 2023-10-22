@@ -14,11 +14,7 @@ class PostService {
     // const postObj = post.objectForUse
     const user = await User.findByPk(id)
     if (!user) throw new Error('não existe user com esse id')
-    const posts = await this.postModel.findAll({
-      where: {
-        isFavorite: true
-      }
-    })
+ 
     const [result] = await this.postModel.update(post, {
       where: {
         id: id,
