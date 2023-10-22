@@ -19,7 +19,7 @@ class PostService {
         isFavorite: true
       }
     })
-    if (posts.length >= 2 && post.isFavorite) throw new Error('Limite de 2 posts favoritos atingidos')
+    if (posts.length >= 2 ) throw new Error('Limite de 2 posts favoritos atingidos')
     const [result] = await this.postModel.update(post, {
       where: {
         id: id,
