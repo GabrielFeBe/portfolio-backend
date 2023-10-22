@@ -21,9 +21,9 @@ const userController = new UserController(userService)
 
 
 const router = Router();
+router.patch('/posts/editing/:id', TokenMiddleware.decoder, (async (req: Request, res: Response) => postController.editingPost(req, res)))
 router.get('/posts/:id', async (req: Request, res: Response) => postController.findPostById(req, res))
 router.get('/posts', (async (req: Request, res: Response) => postController.findAllPosts(req, res)))
-router.patch('/posts/editing/:id', TokenMiddleware.decoder, (async (req: Request, res: Response) => postController.editingPost(req, res)))
 router.get('/favorites', (async (req: Request, res: Response) => postController.findAllFavoritesPosts(req, res)))
 router.post('/posts', TokenMiddleware.decoder, Validate.validatePost, (async (req: Request, res: Response) => postController.creatingPost(req, res)))
 router.post('/user/login', Validate.validateUser, (async (req: Request, res: Response) => userController.login(req, res)))
