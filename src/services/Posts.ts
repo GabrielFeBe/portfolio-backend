@@ -12,7 +12,7 @@ class PostService {
 
   async editingPost(post: TPostS , id:number): Promise<number | null> {
     // const postObj = post.objectForUse
-    const user = await User.findByPk(id)
+    const user = await User.findByPk(post.userId)
     if (!user) throw new Error('não existe user com esse id')
  
     const [result] = await this.postModel.update(post, {
