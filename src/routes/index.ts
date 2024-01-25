@@ -21,6 +21,9 @@ const userController = new UserController(userService)
 
 
 const router = Router();
+router.get('/healthz', (req:Request,res:Response ) =>{
+res.status(200).json({message:"sucessful but i still need to make some changes to acess the database"})
+})
 router.patch('/posts/editing/:id', TokenMiddleware.decoder, (async (req: Request, res: Response) => postController.editingPost(req, res)))
 router.get('/posts/:id', async (req: Request, res: Response) => postController.findPostById(req, res))
 router.get('/posts', (async (req: Request, res: Response) => postController.findAllPosts(req, res)))
